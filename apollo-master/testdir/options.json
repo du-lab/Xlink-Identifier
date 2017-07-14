@@ -1,0 +1,99 @@
+{
+    "job": {
+        "id": "test",
+        "owner": "adam.m.baxter@gmail.com"
+    },
+    "sequence": {
+        "sequences" : [
+            {
+                "reverse": true,
+        "stdMass": {
+            "type": "monoisotopic",
+            "additional": [
+                {"residue": "B", "mass": 145.4859}
+            ]
+        },
+        "modifications": {
+            "static": {
+                "residueMod": [
+                    {"residue": "A", "mod": "#"},
+                    {"residue": "R", "mod": "$"}
+                ],
+                "modMass": [
+                    {"mod": "#", "mass": 14.948},
+                    {"mod": "$", "mass": 19.2837}
+                ]
+            },
+            "dynamic": {
+                "residueMod": [
+                    {"residue": "A", "mod": "~"},
+                    {"residue": "B", "mod": "*"},
+                    {"residue": "C", "mod": "@"}
+                ],
+                "modMass": [
+                    {"mod": "~", "mass": 14.948},
+                    {"mod": "*", "mass": 19.2837},
+                    {"mod": "@", "mass": 45.345}
+                ]
+            }
+        }
+            }
+        ]
+            },
+    "digestion": {
+        "trypticity": "full",
+        "protease": "trypsin",
+        "minLength": 6,
+        "maxLength": 31,
+        "maxNmc": 4
+    },
+    "linker": {
+        "linkers": [
+            {
+                "custom": false, 
+                "name": "light-bs3"
+            },
+            {
+                "custom": false, 
+                "name": "heavy-bs3"
+            },
+            {
+                "custom": true, 
+                "name": "lol-bs3",
+                "interMass": 124.398,
+                "intraMass": 387.384,
+                "deadendMass": 237.498,
+                "reactionGroups": [
+                    {"residues": "K", "bindsToNh2Term": true,"bindsToCTerm": true},
+                    {"residues": "K", "bindsToNh2Term": true,"bindsToCTerm": true}
+                ]
+            }
+        ]
+    },
+    "experiment": {
+
+    },
+    "analysis" : {
+        "precursorSearch": {
+            "tolerance": 1000,
+            "type": "ppm"
+        },
+        "theoreticalSpectrum": {
+            "H20_loss": false,
+            "Nh3_loss": false,
+            "a-ion": false,
+            "maxFragmentIonCharge": 6,
+            "fragmentation": {
+                "intraSequenceFragmentsUnderLinker": false,
+                "method": "etd"
+            }
+        },
+        "ionSearch": {
+            "tolerance": 0.6,
+            "type": "mz"
+        },
+        "scoring": {
+            "xcorrCutoff": -1000000.0
+        }
+    }
+}
